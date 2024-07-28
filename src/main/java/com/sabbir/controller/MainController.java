@@ -2,7 +2,6 @@ package com.sabbir.controller;
 
 import com.sabbir.model.User;
 import com.sabbir.service.UserService;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,7 +57,7 @@ public class MainController {
     }
 
     @PostMapping("/admin/registration")
-    public String registerAdmin(User user, RedirectAttributes redirectAttributes, Model model){
+    public String registerAdmin(User user, RedirectAttributes redirectAttributes){
         if(userService.findUserByUsername(user.getUsername()) != null){
             redirectAttributes.addFlashAttribute("error", "Username Already Exists");
             return "redirect:/admin/registration";
