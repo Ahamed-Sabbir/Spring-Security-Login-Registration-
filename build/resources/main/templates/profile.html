@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/login.css"/>
+</head>
+<body class="container">
+<h1>Login Page</h1>
+    <p>One</p>
+    <p>two</p>
+    <p>three</p>
+    <div th:if="${isAdmin}">
+        <p>four</p>
+        <p>five</p>
+    </div>
+</body>
+</html>
