@@ -11,7 +11,7 @@
   2. user registration page
 
 - Common Protected page
-  1. rest of the others
+  1. profile page
 
 - User pages
   1. user dashboard
