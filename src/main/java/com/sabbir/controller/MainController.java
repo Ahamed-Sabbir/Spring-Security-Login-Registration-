@@ -48,7 +48,7 @@ public class MainController {
             return "redirect:/user/registration";
         }
         userService.saveUser(user);
-        redirectAttributes.addFlashAttribute("Success", "Registration Successful");
+        redirectAttributes.addFlashAttribute("success", "Registration Successful");
         return "redirect:/user/registration";
     }
 
@@ -58,13 +58,13 @@ public class MainController {
     }
 
     @PostMapping("/admin/registration")
-    public String registerAdmin(User user, RedirectAttributes redirectAttributes){
+    public String registerAdmin(User user, RedirectAttributes redirectAttributes, Model model){
         if(userService.findUserByUsername(user.getUsername()) != null){
             redirectAttributes.addFlashAttribute("error", "Username Already Exists");
             return "redirect:/admin/registration";
         }
         userService.saveAdmin(user);
-        redirectAttributes.addFlashAttribute("Success", "Registration Successful");
+        redirectAttributes.addFlashAttribute("success", "Registration Successful");
         return "redirect:/admin/registration";
     }
 

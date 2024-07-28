@@ -2,6 +2,7 @@ package com.sabbir.service;
 
 import com.sabbir.model.Authority;
 import com.sabbir.model.User;
+import com.sabbir.repository.UserRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,15 +17,16 @@ import java.util.Set;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final UserService userService;
-    public CustomUserDetailsService(UserService userService) {
-        this.userService = userService;
+    private final UserRepo userRepo;
+
+    public CustomUserDetailsService(UserRepo userRepo) {
+        this.userRepo = userRepo;
     }
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findUserByUsername(username);
+        User user = userRepo.findByUsernameIgnoreCase(username);
 
         if(user == null){
             throw new UsernameNotFoundException("No user found with" + username + "username");

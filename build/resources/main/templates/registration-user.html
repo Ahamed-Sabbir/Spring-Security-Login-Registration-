@@ -12,7 +12,7 @@
 <p class="warning" th:if="${error}" th:utext="${error}"></p>
 <p class="success" th:if="${success}" th:utext="${success}"></p>
 
-<form th:action="@{/user/register}" method="POST">
+<form th:action="@{/user/registration}" method="POST">
     <label for="firstName">First name</label>
     <input type="text" name="firstName" id="firstName" required>
     <label for="lastName">Last name</label>
