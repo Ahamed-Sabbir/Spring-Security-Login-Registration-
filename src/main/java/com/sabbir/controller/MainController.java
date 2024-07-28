@@ -77,4 +77,10 @@ public class MainController {
         return "dashboard-admin";
     }
 
+    @GetMapping("/profile")
+    public String showProfile(HttpServletRequest request, Model model){
+        model.addAttribute("isAdmin", request.isUserInRole("ROLE_ADMIN"));
+        return "profile";
+    }
+
 }
