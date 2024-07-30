@@ -19,7 +19,12 @@ public class MainController {
         this.userService = userService;
     }
 
-    @GetMapping({"/", "/login"})
+    @GetMapping({"/", "/homepage"})
+    public String homePage(){
+        return "homepage";
+    }
+
+    @GetMapping("/login")
     public String loginPage(@RequestParam(required = false) String error, Model model){
         if(error != null && error.equals("true")){
             model.addAttribute("error", "Invalid Credentials");

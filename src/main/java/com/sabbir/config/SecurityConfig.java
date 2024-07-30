@@ -27,6 +27,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(requestConfigurer -> requestConfigurer
                         .requestMatchers(antMatcher("/h2-console/**")).permitAll()
                         .requestMatchers(antMatcher("/css/**")).permitAll()
+                        .requestMatchers(antMatcher("/homepage/**")).permitAll()
                         .requestMatchers(antMatcher("/login/**")).permitAll()
                         .requestMatchers(antMatcher("/user/registration/**")).permitAll()
                         .requestMatchers(antMatcher("/user/**")).hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
@@ -34,7 +35,7 @@ public class SecurityConfig {
                         .anyRequest().fullyAuthenticated()
                 )
                 .formLogin(loginConfigurer -> loginConfigurer
-                        .loginPage("/login")
+                        .loginPage("/homepage")
                         .usernameParameter("username")
                         .passwordParameter("password")
                         .loginProcessingUrl("/login")
